@@ -37,9 +37,8 @@ def qr_from_contact(context, contact, box_size=5, border=2, version=4):
     qr_text = 'MECARD:'
 
     for k, v in contact.items():
-        v = v.replace(' ', '+')
         if k == 'name':
-            qr_text += 'N:%s;' % v
+            qr_text += 'N:%s;' % v.replace(' ', ',')
         elif k == 'sound':
             qr_text += 'SOUND:%s;' % v
         elif k == 'tel':
