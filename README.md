@@ -2,6 +2,8 @@ template-gen-qr
 ===============
 Projeto de templatetag Django para geração de Qr Codes em base64
 
+required: https://github.com/lincolnloop/python-qrcode
+
 Usando em Templates
 -------------------
 
