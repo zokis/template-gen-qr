@@ -36,17 +36,27 @@ def qr_from_mail(context, text, box_size=5, border=2, version=4):
 def qr_from_contact(context, contact, box_size=5, border=2, version=4):
     qr_text = 'MECARD:'
 
-    for k, v in contact:
+    for k, v in contact.items():
         v = v.replace(' ', '+')
         if k == 'name':
-            qr_text += 'NAME:%s;' % v
+            qr_text += 'N:%s;' % v
+        elif k == 'sound':
+            qr_text += 'SOUND:%s;' % v
         elif k == 'tel':
             qr_text += 'TEL:%s;' % v
-        elif k == 'url':
-            qr_text += 'URL:%s;' % v
+        elif k == 'tel-av':
+            qr_text += 'TEL-AV:%s;' % v
         elif k == 'email':
             qr_text += 'EMAIL:%s;' % v
-        elif k == 'org':
-            qr_text += 'ORG:%s;' % v
+        elif k == 'note':
+            qr_text += 'NOTE:%s;' % v
+        elif k == 'bday':
+            qr_text += 'BDAY:%s;' % v
+        elif k == 'adr':
+            qr_text += 'ADR:%s;' % v
+        elif k == 'url':
+            qr_text += 'URL:%s;' % v
+        elif k == 'nick':
+            qr_text += 'NICKNAME:%s;' % v
 
     return qr_from_text(context, text=qr_text, box_size=box_size, border=border, version=version)
