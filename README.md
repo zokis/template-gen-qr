@@ -29,3 +29,4 @@ def gen_qr(request):
   {% load qr_tags %}
   {% qr_from_contact contato %}
 ```
+![Contato](https://raw.github.com/zokis/template-gen-qr/master/qrcode.png "Contato")
